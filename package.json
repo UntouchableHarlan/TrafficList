@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UntouchableHarlan/react-skeleton.git"
+    "url": "https://github.com/UntouchableHarlan/TrafficList.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UntouchableHarlan/react-skeleton/issues"
+    "url": "https://github.com/UntouchableHarlan/TrafficList"
   },
-  "homepage": "https://github.com/UntouchableHarlan/react-skeleton#readme",
+  "homepage": "https://github.com/UntouchableHarlan/TrafficList#readme",
   "dependencies": {
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",

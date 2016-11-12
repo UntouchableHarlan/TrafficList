@@ -20757,52 +20757,162 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":54}],172:[function(require,module,exports){
 var React = require('react');
-var ListItem = require('./ListItem.jsx');
 
-var ingredients = [{ "id": 1, "text": "ham" }, { "id": 2, "text": "cheese" }, { "id": 3, "text": "egg " }];
+var ListManager = React.createClass({
+  displayName: "ListManager",
 
-var List = React.createClass({
-  displayName: 'List',
 
   render: function () {
-    var listItems = ingredients.map(function (item) {
-      return React.createElement(ListItem, { key: item.id, ingredient: item.text });
-    });
+
+    var border = {
+      borderRadius: 0
+    };
+
+    var divStyle = {
+      marginTop: 10
+    };
+
+    var centerText = {
+      textAlign: "center"
+    };
+
+    var body = {};
+
+    var heading = {};
 
     return React.createElement(
-      'ul',
-      null,
-      listItems
+      "div",
+      { style: divStyle, className: "col-sm-3" },
+      React.createElement(
+        "div",
+        { className: "panel panel-primary", style: border },
+        React.createElement(
+          "div",
+          { className: "panel-heading" },
+          React.createElement(
+            "h3",
+            null,
+            this.props.heading
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "row panel-body" },
+          React.createElement(
+            "h2",
+            { style: centerText },
+            this.props.body
+          )
+        )
+      )
     );
   }
+
 });
 
-},{"./ListItem.jsx":173,"react":171}],173:[function(require,module,exports){
+module.exports = ListManager;
+
+},{"react":171}],173:[function(require,module,exports){
 var React = require('react');
 
-var ListItem = React.createClass({
-  displayName: 'ListItem',
+var shotViews = React.createClass({
+  displayName: "shotViews",
+
 
   render: function () {
+
+    var panelStyle = {
+      padding: 70,
+      backgroundColor: "rebeccapurple"
+    };
+
+    var centerText = {
+      textAlign: "center",
+      marginRight: 125,
+      marginLeft: 35
+    };
+
+    var border = {
+      borderRadius: 0
+    };
+
+    var rightMargin = {
+      marginRight: 48
+    };
+
     return React.createElement(
-      'li',
-      null,
+      "div",
+      { className: "panel panel-primary", style: border },
+      React.createElement("div", { style: panelStyle, className: "panel-body" }),
       React.createElement(
-        'h4',
-        null,
-        this.props.ingredient
+        "div",
+        { className: "panel-footer" },
+        React.createElement(
+          "div",
+          { className: "row" },
+          React.createElement(
+            "div",
+            { className: "col-sm-3", style: centerText },
+            React.createElement(
+              "h4",
+              null,
+              this.props.likeNumber
+            ),
+            React.createElement(
+              "p",
+              null,
+              this.props.likes
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "col-sm-3", style: rightMargin },
+            React.createElement(
+              "h4",
+              null,
+              this.props.commentNumber
+            ),
+            React.createElement(
+              "p",
+              null,
+              this.props.comments
+            )
+          ),
+          React.createElement(
+            "div",
+            { className: "col-sm-3" },
+            React.createElement(
+              "h4",
+              null,
+              this.props.shotViewsNumber
+            ),
+            React.createElement(
+              "p",
+              null,
+              this.props.shotViews
+            )
+          )
+        )
       )
     );
   }
 });
 
-module.exports = ListItem;
+module.exports = shotViews;
 
 },{"react":171}],174:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var List = require('./components/List.jsx');
+var ListManager = require('./components/ListManager.jsx');
+var Long = require('./components/ShotViews.jsx');
 
-ReactDOM.render(React.createElement(List, null), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Many Followers I Got This Week', body: '20' }), document.getElementById('ingredients'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Much Money I Made This Week', body: '$1220' }), document.getElementById('monthly-income'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Much Money I Made This Week', body: '$1220' }), document.getElementById('monthly-income2'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Much Money I Made This Week', body: '$1220' }), document.getElementById('monthly-income3'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Much Money I Made This Week', body: '$1220' }), document.getElementById('monthly-income4'));
+ReactDOM.render(React.createElement(ListManager, { heading: 'How Much Money I Made This Week', body: '$1220' }), document.getElementById('monthly-income5'));
+ReactDOM.render(React.createElement(Long, { likeNumber: '12000', likes: 'Likes', shotViewsNumber: '15080', shotViews: 'Shot Views', commentNumber: '5100', comments: 'Comments' }), document.getElementById('shotViews'));
+ReactDOM.render(React.createElement(Long, { likeNumber: '12000', likes: 'Likes', shotViewsNumber: '15080', shotViews: 'Shot Views', commentNumber: '5100', comments: 'Comments' }), document.getElementById('shotViews2'));
 
-},{"./components/List.jsx":172,"react":171,"react-dom":28}]},{},[174]);
+},{"./components/ListManager.jsx":172,"./components/ShotViews.jsx":173,"react":171,"react-dom":28}]},{},[174]);
